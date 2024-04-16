@@ -8,7 +8,7 @@ function App() {
     <section className="w-full min-h-screen max-h-screen flex justify-between bg-[#242424]">
       <SideBarDir />
       <SideBarQueue />
-      {/* <SideBarControl /> */}
+      <SideBarControl />
     </section>
   )
 }

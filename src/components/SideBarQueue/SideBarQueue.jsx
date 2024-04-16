@@ -34,7 +34,26 @@ function SideBarQueue() {
         <div className="title pt-4 px-2 pb-1 text-sm font-bold text-white">Tiếp theo</div>
         <div className="listSongsWrapper w-full customHeightMediaQueue relative overflow-hidden">
           <div className="listSongs h-full w-full absolute top-0 left-0 overflow-auto">
-            {/* <MediaItems isActive={false} /> */}
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
+            <MediaItems isActive={false} />
           </div>
         </div>
       </section>

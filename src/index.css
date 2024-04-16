@@ -28,10 +28,10 @@
   }
 
   .customHeightMediaQueue {
-    height: calc(100vh - 169px);
+    height: calc(100vh - 259px);
   }
   .customHeightSideBar {
-    height: calc(100vh - 361px);
+    height: calc(100vh - 451px);
   }
   ::-webkit-scrollbar {
     width: 4px;

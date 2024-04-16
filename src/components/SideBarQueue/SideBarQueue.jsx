@@ -1,9 +1,10 @@
+import { songs } from '~/MockData/mock-data'
+import { songListening } from '~/MockData/mock-data'
 import { AlarmClock } from 'lucide-react'
 import { Ellipsis } from 'lucide-react'
 import MediaItems from './MediaItems/MediaItems'
 
 function SideBarQueue() {
-  // const [tabHeader, setTabHeader] = useState(false)
 
   return (
     <div className="h-screen max-h-screen w-[330px] bg-[#120822]">
@@ -26,7 +27,7 @@ function SideBarQueue() {
 
       {/* ===== Now Playing ===== */}
       <section className='nowPlaying px-2'>
-        <MediaItems isActive={true} />
+        <MediaItems dataMedia={songListening} isActive={true} />
       </section>
 
       {/* ===== Next Songs ===== */}
@@ -34,26 +35,16 @@ function SideBarQueue() {
         <div className="title pt-4 px-2 pb-1 text-sm font-bold text-white">Tiếp theo</div>
         <div className="listSongsWrapper w-full customHeightMediaQueue relative overflow-hidden">
           <div className="listSongs h-full w-full absolute top-0 left-0 overflow-auto">
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
-            <MediaItems isActive={false} />
+            {
+              songs?.data?.items?.map(
+                item =>
+                  <MediaItems
+                    key={item.encodeId}
+                    isActive={false}
+                    dataMedia={item}
+                  />
+              )
+            }
           </div>
         </div>
       </section>

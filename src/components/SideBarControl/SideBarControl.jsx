@@ -1,4 +1,6 @@
 import { useState, useRef } from 'react'
+import { songs } from '~/MockData/mock-data'
+import { songListening } from '~/MockData/mock-data'
 import LevelItem from '../LevelItem/LevelItem'
 import MediaItems from '../SideBarQueue/MediaItems/MediaItems'
 import { Shuffle } from 'lucide-react'
@@ -17,7 +19,13 @@ import { ListMusic } from 'lucide-react'
 function SideBarControl() {
   const [iconPlay, setIconPlay] = useState(!false)
   const audioRef = useRef(null)
+  const listSongs = songs?.data?.items
+  let currentIndex = Math.floor(Math.random() * listSongs.length)
+  const [currenSong, setCurrentSong] = useState(currentIndex)
 
+  const handelNextSong = () => {
+    setCurrentSong(currentIndex + 1)
+  }
 
   const handleIcon = () => {
     setIconPlay(!iconPlay)
@@ -30,10 +38,15 @@ function SideBarControl() {
 
   return (
     <section className="h-[90px] w-full fixed bottom-0 left-0 px-5 border-t border-[#ffffff1a] bg-[#170f23]">
-      <audio ref={audioRef} hidden><source src="../../../src/assets/songs/em_chiu_hong.mp3" type="audio/mpeg" /></audio>
+      <audio ref={audioRef} hidden>
+        <source
+          src={listSongs[currenSong]?.link}
+          type="audio/mpeg"
+        />
+      </audio>
       <div className="flex items-center h-full w-full">
         <section className="playerControlLeft w-3/12 h-full flex items-center gap-3">
-          <MediaItems />
+          <MediaItems dataMedia={songListening} />
         </section>
         <section className="playerControlCenter w-6/12 h-full">
           <div className="h-full flex flex-col items-center justify-center gap-2">
@@ -48,7 +61,7 @@ function SideBarControl() {
                 {!iconPlay ? <CirclePause className='w-10 h-10 stroke-1' /> : <CirclePlay className='w-10 h-10 stroke-1' />}
               </div>
               <div className="h-8 w-8 flex items-center justify-center cursor-pointer rounded-full hover:bg-[#ffffff1a]">
-                <SkipForward className='w-5 h-5 stroke-1' />
+                <SkipForward onClick={handelNextSong} className='w-5 h-5 stroke-1' />
               </div>
               <div className="h-8 w-8 flex items-center justify-center cursor-pointer rounded-full hover:bg-[#ffffff1a]">
                 <Repeat className='w-5 h-5 stroke-1' />
